@@ -4,11 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stock California — Toy Store in Glendale &amp; Tujunga | LEGO, Barbie, Marvel</title>
-<meta name="description" content="Family-run toy store with two LA showrooms and thousands of toys from the brands kids love — at prices parents love. Free US shipping over $50.">
+<meta name="description" content="Family-run toy store with two LA showrooms in Glendale & Tujunga — thousands of toys from LEGO, Barbie, Marvel, Hot Wheels & more at prices parents love. Free US shipping over $50.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧸</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ToyStore","name":"Stock California","url":"https://stockcalifornia.com","telephone":"+18185115235","priceRange":"$","image":"https://cdn.shopify.com/s/files/1/0164/3728/0868/files/f_03472_3.webp",
+"address":[{"@type":"PostalAddress","streetAddress":"6743 San Fernando Rd","addressLocality":"Glendale","addressRegion":"CA","postalCode":"91201","addressCountry":"US"},{"@type":"PostalAddress","streetAddress":"7115 Foothill Blvd","addressLocality":"Tujunga","addressRegion":"CA","postalCode":"91042","addressCountry":"US"}],
+"openingHours":"Mo-Su 10:00-20:00"}
+</script>
 <style>
   :root{
     --coral:#FF5A5F;
@@ -38,6 +43,8 @@
   .section-head h2{font-size:clamp(28px,4vw,42px);font-weight:800}
   .section-head p{color:#5b6b7b;font-size:17px;margin-top:6px}
   .kicker{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);background:rgba(255,90,95,.1);padding:6px 14px;border-radius:999px;margin-bottom:12px}
+  .bounce-emoji{display:inline-block;animation:bouncy 2.2s ease-in-out infinite}
+  @keyframes bouncy{0%,100%{transform:translateY(0)}30%{transform:translateY(-9px) rotate(-6deg)}60%{transform:translateY(0) rotate(0)}}
 
   /* ============ Buttons ============ */
   .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:800;font-size:16px;padding:16px 32px;border-radius:999px;border:none;cursor:pointer;transition:transform .25s,box-shadow .25s}
@@ -71,23 +78,50 @@
   .icon-btn svg{width:21px;height:21px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .cart-count{position:absolute;top:0;right:0;background:var(--coral);color:#fff;font-size:11px;font-weight:800;width:18px;height:18px;border-radius:50%;display:grid;place-items:center}
   .hamburger{display:none}
+  .hamburger .hb{width:22px;height:16px;position:relative}
+  .hamburger .hb i{position:absolute;left:0;width:100%;height:3px;border-radius:3px;background:var(--ink);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+  .hamburger .hb i:nth-child(1){top:0;background:var(--coral)}
+  .hamburger .hb i:nth-child(2){top:6.5px;background:var(--sun)}
+  .hamburger .hb i:nth-child(3){top:13px;background:var(--sky)}
+  .hamburger:hover .hb i:nth-child(1){width:70%}
+  .hamburger:hover .hb i:nth-child(3){width:85%}
+
+  /* ============ Mobile nav ============ */
   .mobile-nav{display:none}
+  .mobile-nav.open{display:block;position:fixed;inset:0;background:linear-gradient(160deg,#FFF9F0 60%,#FFEDD6);z-index:300;padding:84px 28px 28px;overflow:auto}
+  .mobile-nav ul{display:flex;flex-direction:column;gap:14px}
+  .mobile-nav li{opacity:0;transform:translateX(-26px)}
+  .mobile-nav.open li{animation:slidein .45s cubic-bezier(.34,1.56,.64,1) forwards}
+  @keyframes slidein{to{opacity:1;transform:translateX(0)}}
+  .mobile-nav a.mn-item{display:flex;align-items:center;gap:14px;font-family:var(--font-head);font-size:24px;font-weight:800;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:var(--shadow)}
+  .mobile-nav a.mn-item .mi{font-size:28px}
+  .mobile-nav .close-nav{position:absolute;top:18px;right:18px;font-size:22px;background:var(--ink);color:#fff;border:none;cursor:pointer;width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+  .mn-call{background:linear-gradient(120deg,var(--coral),var(--sun))!important;color:#fff}
 
   /* ============ Hero ============ */
-  .hero{position:relative;padding:84px 0 96px;overflow:hidden}
+  .hero{position:relative;padding:72px 0 96px;overflow:hidden}
   .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative;z-index:2}
   .hero h1{font-size:clamp(42px,6.5vw,72px);font-weight:800}
   .hero h1 .w{display:inline-block;opacity:0;transform:scale(.8) translateY(10px)}
   .hero h1 .w.in{animation:popin .55s cubic-bezier(.34,1.56,.64,1) forwards}
   @keyframes popin{to{opacity:1;transform:scale(1) translateY(0)}}
-  .hero h1 .hl{background:linear-gradient(90deg,var(--coral),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero .sub{font-size:19px;color:#42526a;margin:18px 0 30px;max-width:520px}
+  .hero h1 .hl{background:linear-gradient(90deg,var(--coral),var(--sun),var(--coral));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite}
+  @keyframes shimmer{to{background-position:200% center}}
+  .hero .sub{font-size:19px;color:#42526a;margin:18px 0 24px;max-width:520px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .glendale-badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:#fff;box-shadow:var(--shadow);border-radius:999px;padding:9px 18px;font-weight:800;font-size:14px}
+  .glendale-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);animation:blink 1.6s ease-in-out infinite}
+  @keyframes blink{50%{opacity:.3}}
+  .sunny{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--sun) 38%,transparent 39%);z-index:1;animation:spinrays 24s linear infinite}
+  .sunny::before{content:'';position:absolute;inset:0;background:repeating-conic-gradient(var(--sun) 0deg 6deg,transparent 6deg 30deg);border-radius:50%;opacity:.55}
+  @keyframes spinrays{to{transform:rotate(360deg)}}
   .float-shape{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5;pointer-events:none;z-index:1}
   .fs-star{filter:none;border-radius:0;opacity:.6;font-size:34px}
   @keyframes drift1{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(24px,-30px) rotate(10deg)}}
   @keyframes drift2{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-30px,22px) rotate(-12deg)}}
   @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(16px,28px) scale(1.12)}}
+  @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.85;transform:scale(1.15)}}
+  .spark{position:absolute;font-size:16px;pointer-events:none;z-index:1;animation:twinkle 2.6s ease-in-out infinite}
   .hero-collage{position:relative;height:440px}
   .collage-card{position:absolute;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:16px;width:240px}
   .collage-card img{border-radius:12px;aspect-ratio:1;object-fit:contain;background:#fff}
@@ -100,13 +134,31 @@
   .cc2{top:120px;right:0;animation:bob2 8.5s ease-in-out infinite;z-index:2}
   .cc3{bottom:0;left:18%;animation:bob3 9.5s ease-in-out infinite;z-index:1;width:200px}
 
+  /* ============ Kid search ============ */
+  .kid-search{position:relative;max-width:520px;margin-top:26px}
+  .kid-search .ks-box{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;box-shadow:var(--shadow);padding:6px 8px 6px 22px;border:3px solid transparent;transition:border-color .25s,box-shadow .25s}
+  .kid-search .ks-box:focus-within{border-color:var(--sun);box-shadow:0 12px 32px rgba(255,183,3,.3)}
+  .kid-search input{flex:1;border:none;outline:none;font-family:var(--font-body);font-weight:700;font-size:17px;background:transparent;min-width:0}
+  .kid-search .ks-go{flex:none;background:linear-gradient(120deg,var(--coral),var(--sun));color:#fff;font-weight:800;border:none;border-radius:999px;padding:12px 22px;font-size:15px;cursor:pointer;font-family:var(--font-body)}
+  .ks-results{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);padding:10px;display:none;z-index:50;max-height:330px;overflow:auto}
+  .ks-results.show{display:block;animation:popin .3s cubic-bezier(.34,1.56,.64,1)}
+  .ks-results a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;font-weight:800;font-size:15px}
+  .ks-results a:hover{background:var(--cream)}
+  .ks-results .ks-emoji{font-size:22px;width:30px;text-align:center}
+  .ks-results .ks-type{margin-left:auto;font-size:11px;font-weight:800;color:#fff;padding:3px 10px;border-radius:999px}
+  .ks-results .ks-all{justify-content:center;color:var(--coral)}
+
   /* ============ Brand marquee ============ */
-  .marquee-sec{padding:28px 0;background:var(--ink);overflow:hidden}
+  .marquee-sec{padding:22px 0;background:var(--ink);overflow:hidden}
   .marquee{display:flex;width:max-content;animation:scroll 32s linear infinite}
+  .marquee.rev{animation:scrollrev 38s linear infinite;margin-top:10px}
   .marquee:hover{animation-play-state:paused}
   @keyframes scroll{to{transform:translateX(-50%)}}
+  @keyframes scrollrev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
   .marquee-track{display:flex;align-items:center;gap:0;flex:none}
-  .marquee-track span{font-family:var(--font-head);font-weight:800;font-size:22px;color:#fff;padding:0 22px;white-space:nowrap;opacity:.9}
+  .marquee-track a,.marquee-track span{font-family:var(--font-head);font-weight:800;font-size:22px;color:#fff;padding:0 22px;white-space:nowrap;opacity:.9;transition:color .2s}
+  .marquee-track a:hover{color:var(--sun)}
+  .marquee-track .mq2{font-size:17px;opacity:.7}
   .marquee-track i{color:var(--sun);font-style:normal}
 
   /* ============ Age tiles ============ */
@@ -114,7 +166,10 @@
   .age-tile{border-radius:var(--radius);padding:34px 22px;text-align:center;color:#fff;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:block}
   .age-tile:hover{animation:wiggle .45s ease-in-out;box-shadow:var(--shadow-lg)}
   @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(3deg)}75%{transform:rotate(-3deg)}}
-  .age-tile .emoji{font-size:46px;display:block;margin-bottom:10px}
+  .age-tile .emoji{font-size:46px;display:block;margin-bottom:10px;animation:bouncy 3s ease-in-out infinite}
+  .age-tile:nth-child(2) .emoji{animation-delay:.4s}
+  .age-tile:nth-child(3) .emoji{animation-delay:.8s}
+  .age-tile:nth-child(4) .emoji{animation-delay:1.2s}
   .age-tile h3{font-size:26px;font-weight:800}
   .age-tile p{font-weight:600;opacity:.92;font-size:14px}
   .at-1{background:linear-gradient(145deg,#06AED5,#0593b5)}
@@ -122,16 +177,26 @@
   .at-3{background:linear-gradient(145deg,#FFB703,#e9a300);color:var(--ink)}
   .at-4{background:linear-gradient(145deg,#9B5DE5,#8447cf)}
 
-  /* ============ Category grid ============ */
-  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-  .cat-tile{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:24px 18px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:15px;transition:transform .25s,box-shadow .25s}
-  .cat-tile:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-  .cat-tile .ci{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:23px}
+  /* ============ Category app grid ============ */
+  .cat-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:18px 12px}
+  .cat-app{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;font-weight:800;font-size:13px;line-height:1.25;transition:transform .25s}
+  .cat-app .ci{width:74px;height:74px;border-radius:24px;display:grid;place-items:center;font-size:36px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;color:#fff}
+  .cat-app:hover{transform:translateY(-5px)}
+  .cat-app:hover .ci{transform:scale(1.1) rotate(-4deg);box-shadow:var(--shadow-lg)}
+  .cat-app:active .ci{transform:scale(.94)}
+  .g1{background:linear-gradient(145deg,#FF5A5F,#e0393e)}
+  .g2{background:linear-gradient(145deg,#9B5DE5,#7d3fc9)}
+  .g3{background:linear-gradient(145deg,#FFB703,#ec9d00)}
+  .g4{background:linear-gradient(145deg,#06AED5,#048fb0)}
+  .g5{background:linear-gradient(145deg,#8AC926,#6f9e1b)}
+  .g6{background:linear-gradient(145deg,#FF8FA3,#f76f8a)}
+  .g7{background:linear-gradient(145deg,#4CC9F0,#22a8d6)}
+  .g8{background:linear-gradient(145deg,#F4845F,#e96538)}
 
   /* ============ Product cards ============ */
   .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
   .prod-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:relative;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
-  .prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .prod-card:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:var(--shadow-lg)}
   .prod-img{position:relative;aspect-ratio:1;background:#fff;overflow:hidden;padding:18px}
   .prod-img img{width:100%;height:100%;object-fit:contain;transition:transform .25s}
   .prod-card:hover .prod-img img{transform:scale(1.05)}
@@ -147,17 +212,24 @@
   .deals-cta{text-align:center;margin-top:38px}
 
   /* ============ Showrooms ============ */
-  .stores-sec{background:linear-gradient(145deg,#1D2B3A,#15202c);color:#fff;border-radius:32px;margin:0 20px}
-  .stores-in{max-width:1160px;margin:0 auto;padding:0 20px}
+  .stores-sec{background:linear-gradient(145deg,#1D2B3A,#15202c);color:#fff;border-radius:32px;margin:0 20px;position:relative;overflow:hidden}
+  .stores-in{max-width:1160px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
   .stores-sec .section-head h2{color:#fff}
   .stores-sec .section-head p{color:#b8c4d0}
   .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .store-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:30px;transition:transform .25s,background .25s}
   .store-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.1)}
-  .store-card .pin{width:52px;height:52px;background:var(--coral);border-radius:16px;display:grid;place-items:center;font-size:24px;margin-bottom:16px}
+  .store-card .pin{width:52px;height:52px;background:var(--coral);border-radius:16px;display:grid;place-items:center;font-size:24px;margin-bottom:16px;animation:bouncy 3.4s ease-in-out infinite}
   .store-card h3{font-size:24px;margin-bottom:6px}
   .store-card p{color:#c6d0da;font-size:15px}
   .store-card .hours{display:inline-block;margin-top:12px;background:rgba(255,183,3,.15);color:var(--sun);font-weight:800;font-size:13px;padding:6px 14px;border-radius:999px}
+  .store-card .s-call{display:inline-flex;align-items:center;gap:7px;margin-top:12px;margin-left:8px;background:var(--coral);color:#fff;font-weight:800;font-size:13px;padding:6px 16px;border-radius:999px;transition:transform .2s}
+  .store-card .s-call:hover{transform:scale(1.06)}
+
+  /* ============ Areas served ============ */
+  .areas-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .areas-chips a{background:#fff;box-shadow:var(--shadow);border-radius:999px;padding:9px 18px;font-weight:800;font-size:13.5px;transition:transform .2s,background .2s,color .2s}
+  .areas-chips a:hover{transform:translateY(-3px) rotate(-1deg);background:var(--coral);color:#fff}
 
   /* ============ Trust strip ============ */
   .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -176,6 +248,21 @@
   .news-thanks{display:none;font-weight:800;font-size:20px;margin-top:8px}
   .confetti{position:absolute;width:10px;height:10px;top:50%;left:50%;border-radius:2px;pointer-events:none;z-index:5}
 
+  /* ============ Floating call button ============ */
+  .call-fab{position:fixed;right:20px;bottom:20px;z-index:250;width:64px;height:64px;border-radius:50%;background:linear-gradient(140deg,var(--lime),#6f9e1b);display:grid;place-items:center;box-shadow:0 10px 28px rgba(138,201,38,.5);animation:fabring 2.6s ease-out infinite, wobble 6s ease-in-out infinite}
+  .call-fab svg{width:28px;height:28px;fill:#fff}
+  @keyframes fabring{0%{box-shadow:0 10px 28px rgba(138,201,38,.5),0 0 0 0 rgba(138,201,38,.45)}70%{box-shadow:0 10px 28px rgba(138,201,38,.5),0 0 0 22px rgba(138,201,38,0)}100%{box-shadow:0 10px 28px rgba(138,201,38,.5),0 0 0 0 rgba(138,201,38,0)}}
+  .call-fab .fab-tip{position:absolute;right:74px;top:50%;transform:translateY(-50%);background:var(--ink);color:#fff;font-weight:800;font-size:13px;padding:8px 16px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s}
+  .call-fab:hover .fab-tip{opacity:1}
+
+  /* ============ Mobile app bar ============ */
+  .app-bar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:240;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-radius:24px;box-shadow:0 12px 36px rgba(29,43,58,.22);padding:8px 6px}
+  .app-bar ul{display:flex;justify-content:space-around}
+  .app-bar a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:800;color:#5b6b7b;padding:6px 10px;border-radius:14px;transition:transform .2s}
+  .app-bar a .ab-i{font-size:22px;transition:transform .2s}
+  .app-bar a:active .ab-i{transform:scale(1.3)}
+  .app-bar a.ab-call{color:var(--coral)}
+
   /* ============ Footer ============ */
   footer{background:var(--ink);color:#c6d0da;padding:64px 0 32px;margin-top:80px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
@@ -188,6 +275,8 @@
   .socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:background .2s,transform .2s}
   .socials a:hover{background:var(--coral);transform:translateY(-3px)}
   .socials svg{width:18px;height:18px;fill:#fff}
+  .foot-areas{border-top:1px solid rgba(255,255,255,.12);padding:20px 0;font-size:13px;font-weight:600;color:#8a98a8;line-height:2}
+  .foot-areas a{white-space:nowrap}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;text-align:center;font-size:13.5px;font-weight:600;color:#8a98a8}
 
   /* ============ Scroll reveal ============ */
@@ -207,27 +296,32 @@
     .foot-grid{grid-template-columns:1fr 1fr}
     nav.main-nav{display:none}
     .hamburger{display:grid}
+    .cat-grid{grid-template-columns:repeat(4,1fr)}
   }
   @media (max-width:560px){
     section{padding:52px 0}
+    body{padding-bottom:84px}
+    .app-bar{display:block}
+    .call-fab{bottom:96px;right:14px;width:58px;height:58px}
     .prod-grid{grid-template-columns:1fr 1fr;gap:12px}
     .prod-body{padding:12px 12px 14px}
     .prod-title{font-size:13px}
     .age-grid{gap:12px}
     .collage-card{width:170px;padding:10px}
     .cc3{display:none}
-    .hero{padding:56px 0 64px}
+    .hero{padding:48px 0 64px}
     .trust{grid-template-columns:1fr}
+    .cat-grid{gap:16px 6px}
+    .cat-app .ci{width:64px;height:64px;border-radius:20px;font-size:30px}
+    .cat-app{font-size:11.5px}
   }
-  .mobile-nav.open{display:block;position:fixed;inset:0;top:0;background:rgba(255,249,240,.98);z-index:200;padding:90px 32px}
-  .mobile-nav ul{font-family:var(--font-head);font-size:30px;font-weight:800;display:flex;flex-direction:column;gap:20px}
-  .mobile-nav .close-nav{position:absolute;top:22px;right:22px;font-size:30px;background:none;border:none;cursor:pointer;color:var(--ink)}
 
   /* ============ Reduced motion ============ */
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     .hero h1 .w{opacity:1;transform:none}
     .reveal,.stagger>*{opacity:1;transform:none}
+    .mobile-nav li{opacity:1;transform:none}
     html{scroll-behavior:auto}
   }
 </style>
@@ -238,12 +332,13 @@
 <div class="announce" role="status">
   <span class="on">🚚 Free shipping on all orders over $50</span>
   <span>📍 2 LA showrooms — Glendale &amp; Tujunga · Open daily 10AM–8PM</span>
+  <span>📞 Questions? Call us — (818) 511-5235</span>
 </div>
 
 <!-- Header -->
 <header>
   <div class="header-in">
-    <a class="logo" href="#" aria-label="Stock California home">
+    <a class="logo" href="/" aria-label="Stock California home">
       <span class="brick" aria-hidden="true"></span>
       <span><span class="word-stock">Stock</span> <span class="word-ca">California</span></span>
     </a>
@@ -257,10 +352,10 @@
       </ul>
     </nav>
     <div class="header-icons">
-      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+      <a class="icon-btn" href="#search" aria-label="Search" onclick="document.getElementById('ksInput').focus()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a>
       <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>
       <button class="icon-btn" aria-label="Cart, 3 items"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="cart-count">3</span></button>
-      <button class="icon-btn hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.add('open')"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <button class="icon-btn hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.add('open')"><span class="hb"><i></i><i></i><i></i></span></button>
     </div>
   </div>
 </header>
@@ -268,16 +363,18 @@
 <div class="mobile-nav">
   <button class="close-nav" aria-label="Close menu" onclick="this.parentElement.classList.remove('open')">✕</button>
   <ul>
-    <li><a href="#ages" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Shop by Age</a></li>
-    <li><a href="#brands" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Shop by Brand</a></li>
-    <li><a href="#categories" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Categories</a></li>
-    <li><a href="#deals" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Deals</a></li>
-    <li><a href="#stores" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Our Stores</a></li>
+    <li style="animation-delay:.05s"><a class="mn-item" href="#ages" onclick="document.querySelector('.mobile-nav').classList.remove('open')"><span class="mi">🧸</span>Shop by Age</a></li>
+    <li style="animation-delay:.12s"><a class="mn-item" href="#brands" onclick="document.querySelector('.mobile-nav').classList.remove('open')"><span class="mi">⭐</span>Shop by Brand</a></li>
+    <li style="animation-delay:.19s"><a class="mn-item" href="#categories" onclick="document.querySelector('.mobile-nav').classList.remove('open')"><span class="mi">🎨</span>Categories</a></li>
+    <li style="animation-delay:.26s"><a class="mn-item" href="#deals" onclick="document.querySelector('.mobile-nav').classList.remove('open')"><span class="mi">🔥</span>Deals</a></li>
+    <li style="animation-delay:.33s"><a class="mn-item" href="#stores" onclick="document.querySelector('.mobile-nav').classList.remove('open')"><span class="mi">📍</span>Our Stores</a></li>
+    <li style="animation-delay:.40s"><a class="mn-item mn-call" href="tel:+18185115235"><span class="mi">📞</span>Call us — (818) 511-5235</a></li>
   </ul>
 </div>
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero" id="search">
+  <div class="sunny" aria-hidden="true"></div>
   <!-- floating shapes -->
   <div class="float-shape" style="width:140px;height:140px;background:var(--sun);top:8%;left:4%;animation:drift1 8s ease-in-out infinite" aria-hidden="true"></div>
   <div class="float-shape" style="width:90px;height:90px;background:var(--sky);bottom:14%;left:38%;animation:drift2 9s ease-in-out infinite" aria-hidden="true"></div>
@@ -285,6 +382,9 @@
   <div class="float-shape" style="width:70px;height:70px;background:var(--lime);bottom:8%;right:22%;animation:drift1 7s ease-in-out infinite" aria-hidden="true"></div>
   <div class="float-shape fs-star" style="top:22%;left:30%;animation:drift2 6.5s ease-in-out infinite" aria-hidden="true">⭐</div>
   <div class="float-shape fs-star" style="bottom:24%;right:8%;animation:drift3 8.5s ease-in-out infinite" aria-hidden="true">🧩</div>
+  <div class="spark" style="top:12%;left:48%" aria-hidden="true">✨</div>
+  <div class="spark" style="top:60%;left:6%;animation-delay:.9s" aria-hidden="true">✨</div>
+  <div class="spark" style="top:30%;right:30%;animation-delay:1.6s" aria-hidden="true">✨</div>
 
   <div class="wrap hero-in">
     <div>
@@ -295,6 +395,15 @@
         <a class="btn btn-coral btn-pulse" href="#deals">Shop Best Sellers 🎁</a>
         <a class="btn btn-ghost" href="#stores">Visit a Showroom</a>
       </div>
+      <div class="kid-search">
+        <div class="ks-box">
+          <span style="font-size:20px" aria-hidden="true">🔍</span>
+          <input id="ksInput" type="search" placeholder="What toy are we hunting today? 🦖" aria-label="Search toys" autocomplete="off">
+          <button class="ks-go" id="ksGo">Find it!</button>
+        </div>
+        <div class="ks-results" id="ksResults" role="listbox"></div>
+      </div>
+      <span class="glendale-badge"><span class="dot"></span>Proudly local — Glendale &amp; the foothills since day one 🌴</span>
     </div>
     <div class="hero-collage" aria-hidden="true">
       <div class="collage-card cc1">
@@ -317,10 +426,18 @@
 <div class="marquee-sec" id="brands" aria-label="Brands we carry">
   <div class="marquee">
     <div class="marquee-track">
-      <span>LEGO</span><i>★</i><span>Barbie</span><i>★</i><span>Marvel</span><i>★</i><span>Star Wars</span><i>★</i><span>Hot Wheels</span><i>★</i><span>Disney</span><i>★</i><span>Paw Patrol</span><i>★</i><span>Transformers</span><i>★</i><span>Funko</span><i>★</i><span>COBI</span><i>★</i><span>Melissa &amp; Doug</span><i>★</i><span>Fisher-Price</span><i>★</i><span>Hasbro</span><i>★</i><span>Mattel</span><i>★</i>
+      <a href="/brands/lego">LEGO</a><i>★</i><a href="/brands/barbie">Barbie</a><i>★</i><a href="/brands/marvel">Marvel</a><i>★</i><a href="/brands/star-wars">Star Wars</a><i>★</i><a href="/brands/hot-wheels">Hot Wheels</a><i>★</i><a href="/brands/disney">Disney</a><i>★</i><a href="/brands/paw-patrol">Paw Patrol</a><i>★</i><a href="/brands/transformers">Transformers</a><i>★</i><a href="/brands/funko">Funko</a><i>★</i><a href="/brands/cobi">COBI</a><i>★</i><a href="/brands/melissa-and-doug">Melissa &amp; Doug</a><i>★</i><a href="/brands/fisher-price">Fisher-Price</a><i>★</i><a href="/brands/hasbro">Hasbro</a><i>★</i><a href="/brands/mattel">Mattel</a><i>★</i>
     </div>
     <div class="marquee-track" aria-hidden="true">
-      <span>LEGO</span><i>★</i><span>Barbie</span><i>★</i><span>Marvel</span><i>★</i><span>Star Wars</span><i>★</i><span>Hot Wheels</span><i>★</i><span>Disney</span><i>★</i><span>Paw Patrol</span><i>★</i><span>Transformers</span><i>★</i><span>Funko</span><i>★</i><span>COBI</span><i>★</i><span>Melissa &amp; Doug</span><i>★</i><span>Fisher-Price</span><i>★</i><span>Hasbro</span><i>★</i><span>Mattel</span><i>★</i>
+      <a href="/brands/lego" tabindex="-1">LEGO</a><i>★</i><a href="/brands/barbie" tabindex="-1">Barbie</a><i>★</i><a href="/brands/marvel" tabindex="-1">Marvel</a><i>★</i><a href="/brands/star-wars" tabindex="-1">Star Wars</a><i>★</i><a href="/brands/hot-wheels" tabindex="-1">Hot Wheels</a><i>★</i><a href="/brands/disney" tabindex="-1">Disney</a><i>★</i><a href="/brands/paw-patrol" tabindex="-1">Paw Patrol</a><i>★</i><a href="/brands/transformers" tabindex="-1">Transformers</a><i>★</i><a href="/brands/funko" tabindex="-1">Funko</a><i>★</i><a href="/brands/cobi" tabindex="-1">COBI</a><i>★</i><a href="/brands/melissa-and-doug" tabindex="-1">Melissa &amp; Doug</a><i>★</i><a href="/brands/fisher-price" tabindex="-1">Fisher-Price</a><i>★</i><a href="/brands/hasbro" tabindex="-1">Hasbro</a><i>★</i><a href="/brands/mattel" tabindex="-1">Mattel</a><i>★</i>
+    </div>
+  </div>
+  <div class="marquee rev" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="mq2">🧱 Building</span><i>·</i><span class="mq2">🪆 Dolls</span><i>·</i><span class="mq2">🦸 Heroes</span><i>·</i><span class="mq2">🧩 Puzzles</span><i>·</i><span class="mq2">🚗 Vehicles</span><i>·</i><span class="mq2">🎨 Crafts</span><i>·</i><span class="mq2">🔬 STEM</span><i>·</i><span class="mq2">⚽ Sports</span><i>·</i><span class="mq2">🧸 Plush</span><i>·</i><span class="mq2">🎲 Games</span><i>·</i>
+    </div>
+    <div class="marquee-track">
+      <span class="mq2">🧱 Building</span><i>·</i><span class="mq2">🪆 Dolls</span><i>·</i><span class="mq2">🦸 Heroes</span><i>·</i><span class="mq2">🧩 Puzzles</span><i>·</i><span class="mq2">🚗 Vehicles</span><i>·</i><span class="mq2">🎨 Crafts</span><i>·</i><span class="mq2">🔬 STEM</span><i>·</i><span class="mq2">⚽ Sports</span><i>·</i><span class="mq2">🧸 Plush</span><i>·</i><span class="mq2">🎲 Games</span><i>·</i>
     </div>
   </div>
 </div>
@@ -330,7 +447,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">Just-right picks</span>
-      <h2>Shop by Age</h2>
+      <h2>Shop by Age <span class="bounce-emoji">🎈</span></h2>
       <p>Find the perfect toy for every stage — from first rattles to big-kid builds.</p>
     </div>
     <div class="age-grid stagger">
@@ -350,23 +467,31 @@
   </div>
 </section>
 
-<!-- Categories -->
+<!-- Categories — app style -->
 <section id="categories" style="padding-top:0">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">Aisles of fun</span>
-      <h2>Explore Categories</h2>
+      <h2>Explore Categories <span class="bounce-emoji">🧸</span></h2>
+      <p>Tap an icon — just like your favorite app.</p>
     </div>
-    <div class="cat-grid stagger">
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/action-figures"><span class="ci" style="background:rgba(255,90,95,.12)">🦸</span>Action Figures</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/dolls-accessories"><span class="ci" style="background:rgba(155,93,229,.12)">🪆</span>Dolls &amp; Accessories</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/collectibles"><span class="ci" style="background:rgba(255,183,3,.15)">🏆</span>Collectibles</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/construction-toys"><span class="ci" style="background:rgba(6,174,213,.12)">🧱</span>Building Toys</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/games-puzzles"><span class="ci" style="background:rgba(138,201,38,.14)">🧩</span>Games &amp; Puzzles</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/stem-learning"><span class="ci" style="background:rgba(6,174,213,.12)">🔬</span>STEM &amp; Learning</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/play-vehicles"><span class="ci" style="background:rgba(255,90,95,.12)">🚗</span>Play Vehicles</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/ride-on-cars"><span class="ci" style="background:rgba(255,183,3,.15)">🏎️</span>Ride-On Cars</a>
-      <a class="cat-tile" href="https://stockcalifornia.com/collections/sport-outdoors"><span class="ci" style="background:rgba(138,201,38,.14)">⚽</span>Sport &amp; Outdoors</a>
+    <div class="cat-grid stagger" id="catGrid">
+      <a class="cat-app" href="https://stockcalifornia.com/collections/action-figures"><span class="ci g1">🦸</span>Action Figures</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/dolls-accessories"><span class="ci g2">🪆</span>Dolls</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/collectibles"><span class="ci g3">🏆</span>Collectibles</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/construction-toys"><span class="ci g4">🧱</span>Building Toys</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/games-puzzles"><span class="ci g5">🧩</span>Games &amp; Puzzles</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/stem-learning"><span class="ci g6">🔬</span>STEM &amp; Learning</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/play-vehicles"><span class="ci g7">🚗</span>Play Vehicles</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/ride-on-cars"><span class="ci g8">🏎️</span>Ride-On Cars</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/sport-outdoors"><span class="ci g5">⚽</span>Sport &amp; Outdoors</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/arts-crafts"><span class="ci g3">🎨</span>Arts &amp; Crafts</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/plush"><span class="ci g6">🧸</span>Plush &amp; Stuffies</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/baby-toddler"><span class="ci g7">🍼</span>Baby &amp; Toddler</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/pretend-play"><span class="ci g2">🎭</span>Pretend Play</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/squishies-fidgets"><span class="ci g1">🫧</span>Squishies &amp; Fidgets</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/outdoor-summer"><span class="ci g4">🏖️</span>Outdoor &amp; Summer</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/activity-books"><span class="ci g8">📚</span>Activity Books</a>
     </div>
   </div>
 </section>
@@ -376,7 +501,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">Flying off the shelves</span>
-      <h2>Best Sellers &amp; Deals</h2>
+      <h2>Best Sellers &amp; Deals <span class="bounce-emoji">🔥</span></h2>
       <p>Real favorites from our LA showrooms — restocked weekly.</p>
     </div>
     <div class="prod-grid stagger">
@@ -422,7 +547,7 @@
   <div class="stores-in">
     <div class="section-head reveal">
       <span class="kicker" style="background:rgba(255,183,3,.18);color:var(--sun)">Come say hi</span>
-      <h2>Two LA Showrooms</h2>
+      <h2>Two LA Showrooms <span class="bounce-emoji">🌴</span></h2>
       <p>Thousands of toys in person. Bring the kids — we dare you to leave empty-handed.</p>
     </div>
     <div class="store-grid stagger">
@@ -431,14 +556,28 @@
         <h3>Glendale</h3>
         <p>6743 San Fernando Rd, Glendale, CA 91201</p>
         <span class="hours">Open daily · 10AM–8PM</span>
+        <a class="s-call" href="tel:+18185115235">📞 Call</a>
       </div>
       <div class="store-card">
-        <div class="pin">📍</div>
+        <div class="pin" style="animation-delay:.5s">📍</div>
         <h3>Tujunga</h3>
         <p>7115 Foothill Blvd, Tujunga, CA 91042</p>
         <span class="hours">Open daily · 10AM–8PM</span>
+        <a class="s-call" href="tel:+18182055533">📞 Call</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Areas served -->
+<section id="areas" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Around the corner</span>
+      <h2>Serving Glendale &amp; All the Neighbors <span class="bounce-emoji">🚗</span></h2>
+      <p>Minutes away from these LA neighborhoods — and we ship everywhere in the US.</p>
+    </div>
+    <div class="areas-chips reveal" id="areasChips"><a href="/toy-store-glendale">Glendale</a><a href="/toy-store-tujunga">Tujunga</a><a href="/toy-store-burbank">Burbank</a><a href="/toy-store-pasadena">Pasadena</a><a href="/toy-store-la-crescenta">La Crescenta</a><a href="/toy-store-montrose">Montrose</a><a href="/toy-store-la-canada-flintridge">La Cañada Flintridge</a><a href="/toy-store-sunland">Sunland</a><a href="/toy-store-shadow-hills">Shadow Hills</a><a href="/toy-store-lake-view-terrace">Lake View Terrace</a><a href="/toy-store-sun-valley">Sun Valley</a><a href="/toy-store-north-hollywood">North Hollywood</a><a href="/toy-store-studio-city">Studio City</a><a href="/toy-store-sherman-oaks">Sherman Oaks</a><a href="/toy-store-van-nuys">Van Nuys</a><a href="/toy-store-toluca-lake">Toluca Lake</a><a href="/toy-store-eagle-rock">Eagle Rock</a><a href="/toy-store-highland-park">Highland Park</a><a href="/toy-store-glassell-park">Glassell Park</a><a href="/toy-store-atwater-village">Atwater Village</a><a href="/toy-store-los-feliz">Los Feliz</a><a href="/toy-store-silver-lake">Silver Lake</a><a href="/toy-store-echo-park">Echo Park</a><a href="/toy-store-altadena">Altadena</a><a href="/toy-store-sierra-madre">Sierra Madre</a><a href="/toy-store-arcadia">Arcadia</a><a href="/toy-store-south-pasadena">South Pasadena</a><a href="/toy-store-san-marino">San Marino</a><a href="/toy-store-alhambra">Alhambra</a><a href="/toy-store-downtown-los-angeles">Downtown Los Angeles</a></div>
   </div>
 </section>
 
@@ -469,16 +608,33 @@
   </div>
 </section>
 
+<!-- Floating call button -->
+<a class="call-fab" href="tel:+18185115235" aria-label="Call Stock California: (818) 511-5235">
+  <span class="fab-tip">Call us! (818) 511-5235</span>
+  <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+</a>
+
+<!-- Mobile app bar -->
+<nav class="app-bar" aria-label="Quick navigation">
+  <ul>
+    <li><a href="#search"><span class="ab-i">🏠</span>Home</a></li>
+    <li><a href="#search" onclick="setTimeout(function(){document.getElementById('ksInput').focus()},400)"><span class="ab-i">🔍</span>Search</a></li>
+    <li><a href="#categories"><span class="ab-i">🧸</span>Toys</a></li>
+    <li><a href="#deals"><span class="ab-i">🔥</span>Deals</a></li>
+    <li><a class="ab-call" href="tel:+18185115235"><span class="ab-i">📞</span>Call</a></li>
+  </ul>
+</nav>
+
 <!-- Footer -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href="#"><span class="brick" aria-hidden="true"></span><span><span class="word-stock">Stock</span> <span class="word-ca">California</span></span></a>
+        <a class="logo" href="/"><span class="brick" aria-hidden="true"></span><span><span class="word-stock">Stock</span> <span class="word-ca">California</span></span></a>
         <p style="font-size:14.5px;max-width:300px">Family-run toy store with two LA showrooms and thousands of toys from the brands kids love — at prices parents love. Free US shipping over $50.</p>
         <div class="socials">
           <a href="https://facebook.com/stockcalifornia" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.2-1.5 1.5-1.5h1.4V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.4v7h3.3z"/></svg></a>
-          <a href="https://instagram.com/stockcalifornia" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.4-.3.8-.3 1.9-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.1.8.3 1.9.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.4.3-.8.3-1.9.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.1-.8-.3-1.9-.3-1.3-.1-1.7-.1-4.8-.1zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+          <a href="https://instagram.com/stockcalifornia" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
         </div>
       </div>
       <div>
@@ -495,6 +651,7 @@
         <h4>Help</h4>
         <ul>
           <li><a href="https://stockcalifornia.com/pages/contact">Contact</a></li>
+          <li><a href="tel:+18185115235">(818) 511-5235</a></li>
           <li><a href="https://stockcalifornia.com/policies/shipping-policy">Shipping Policy</a></li>
           <li><a href="https://stockcalifornia.com/policies/refund-policy">Returns</a></li>
           <li><a href="https://stockcalifornia.com/policies/privacy-policy">Privacy</a></li>
@@ -510,6 +667,7 @@
         </ul>
       </div>
     </div>
+    <div class="foot-areas" id="footAreas"><strong style="color:#fff">Areas we serve:</strong> <a href="/toy-store-glendale">Toy store near Glendale</a> · <a href="/toy-store-tujunga">Toy store near Tujunga</a> · <a href="/toy-store-burbank">Toy store near Burbank</a> · <a href="/toy-store-pasadena">Toy store near Pasadena</a> · <a href="/toy-store-la-crescenta">Toy store near La Crescenta</a> · <a href="/toy-store-montrose">Toy store near Montrose</a> · <a href="/toy-store-la-canada-flintridge">Toy store near La Cañada Flintridge</a> · <a href="/toy-store-sunland">Toy store near Sunland</a> · <a href="/toy-store-shadow-hills">Toy store near Shadow Hills</a> · <a href="/toy-store-lake-view-terrace">Toy store near Lake View Terrace</a> · <a href="/toy-store-sun-valley">Toy store near Sun Valley</a> · <a href="/toy-store-north-hollywood">Toy store near North Hollywood</a> · <a href="/toy-store-studio-city">Toy store near Studio City</a> · <a href="/toy-store-sherman-oaks">Toy store near Sherman Oaks</a> · <a href="/toy-store-van-nuys">Toy store near Van Nuys</a> · <a href="/toy-store-toluca-lake">Toy store near Toluca Lake</a> · <a href="/toy-store-eagle-rock">Toy store near Eagle Rock</a> · <a href="/toy-store-highland-park">Toy store near Highland Park</a> · <a href="/toy-store-glassell-park">Toy store near Glassell Park</a> · <a href="/toy-store-atwater-village">Toy store near Atwater Village</a> · <a href="/toy-store-los-feliz">Toy store near Los Feliz</a> · <a href="/toy-store-silver-lake">Toy store near Silver Lake</a> · <a href="/toy-store-echo-park">Toy store near Echo Park</a> · <a href="/toy-store-altadena">Toy store near Altadena</a> · <a href="/toy-store-sierra-madre">Toy store near Sierra Madre</a> · <a href="/toy-store-arcadia">Toy store near Arcadia</a> · <a href="/toy-store-south-pasadena">Toy store near South Pasadena</a> · <a href="/toy-store-san-marino">Toy store near San Marino</a> · <a href="/toy-store-alhambra">Toy store near Alhambra</a> · <a href="/toy-store-downtown-los-angeles">Toy store near Downtown Los Angeles</a><br><strong style="color:#fff">Popular brands:</strong> <a href="/brands/lego">LEGO toys</a> · <a href="/brands/barbie">Barbie toys</a> · <a href="/brands/marvel">Marvel toys</a> · <a href="/brands/star-wars">Star Wars toys</a> · <a href="/brands/hot-wheels">Hot Wheels toys</a> · <a href="/brands/disney">Disney toys</a> · <a href="/brands/paw-patrol">Paw Patrol toys</a> · <a href="/brands/transformers">Transformers toys</a> · <a href="/brands/funko">Funko toys</a> · <a href="/brands/cobi">COBI toys</a> · <a href="/brands/melissa-and-doug">Melissa & Doug toys</a> · <a href="/brands/fisher-price">Fisher-Price toys</a> · <a href="/brands/hasbro">Hasbro toys</a> · <a href="/brands/mattel">Mattel toys</a></div>
     <div class="foot-bottom">© 2026 Stock California · California’s Toy Box · Glendale &amp; Tujunga, Los Angeles</div>
   </div>
 </footer>
@@ -543,7 +701,7 @@
           e.target.classList.add('vis');
           if (e.target.classList.contains('stagger')) {
             Array.prototype.forEach.call(e.target.children, function(c, i){
-              c.style.transitionDelay = (i * 80) + 'ms';
+              c.style.transitionDelay = (i * 60) + 'ms';
             });
           }
           io.unobserve(e.target);
@@ -554,6 +712,73 @@
   } else {
     document.querySelectorAll('.reveal,.stagger').forEach(function(el){ el.classList.add('vis'); });
   }
+
+  /* ===== Kid search ===== */
+  var INDEX = [
+    {t:'Action Figures', e:'🦸', k:'superhero hero figures', u:'https://stockcalifornia.com/collections/action-figures', y:'category'},
+    {t:'Dolls & Accessories', e:'🪆', k:'doll barbie', u:'https://stockcalifornia.com/collections/dolls-accessories', y:'category'},
+    {t:'Collectibles', e:'🏆', k:'funko figures', u:'https://stockcalifornia.com/collections/collectibles', y:'category'},
+    {t:'Building Toys', e:'🧱', k:'lego blocks bricks construction cobi', u:'https://stockcalifornia.com/collections/construction-toys', y:'category'},
+    {t:'Games & Puzzles', e:'🧩', k:'board game jigsaw', u:'https://stockcalifornia.com/collections/games-puzzles', y:'category'},
+    {t:'STEM & Learning', e:'🔬', k:'science educational learn', u:'https://stockcalifornia.com/collections/stem-learning', y:'category'},
+    {t:'Play Vehicles', e:'🚗', k:'cars trucks hot wheels bruder', u:'https://stockcalifornia.com/collections/play-vehicles', y:'category'},
+    {t:'Ride-On Cars', e:'🏎️', k:'electric ride on', u:'https://stockcalifornia.com/collections/ride-on-cars', y:'category'},
+    {t:'Sport & Outdoors', e:'⚽', k:'soccer ball bike outdoor', u:'https://stockcalifornia.com/collections/sport-outdoors', y:'category'},
+    {t:'Arts & Crafts', e:'🎨', k:'crayola markers coloring draw', u:'https://stockcalifornia.com/collections/arts-crafts', y:'category'},
+    {t:'Plush & Stuffies', e:'🧸', k:'teddy stuffed animal soft', u:'https://stockcalifornia.com/collections/plush', y:'category'},
+    {t:'Baby & Toddler', e:'🍼', k:'infant baby toddler', u:'https://stockcalifornia.com/collections/baby-toddler', y:'category'},
+    {t:'Pretend Play', e:'🎭', k:'kitchen dress up costume', u:'https://stockcalifornia.com/collections/pretend-play', y:'category'},
+    {t:'Squishies & Fidgets', e:'🫧', k:'squishy fidget stress sensory', u:'https://stockcalifornia.com/collections/squishies-fidgets', y:'category'},
+    {t:'Outdoor & Summer', e:'🏖️', k:'beach water pool summer', u:'https://stockcalifornia.com/collections/outdoor-summer', y:'category'},
+    {t:'Activity Books', e:'📚', k:'coloring book stickers', u:'https://stockcalifornia.com/collections/activity-books', y:'category'},
+    {t:'LEGO', e:'🧱', k:'lego bricks', u:'/brands/lego', y:'brand'},
+    {t:'Barbie', e:'👛', k:'barbie doll', u:'/brands/barbie', y:'brand'},
+    {t:'Marvel', e:'🦸', k:'spiderman avengers hulk marvel', u:'/brands/marvel', y:'brand'},
+    {t:'Star Wars', e:'🌌', k:'star wars jedi', u:'/brands/star-wars', y:'brand'},
+    {t:'Hot Wheels', e:'🏎️', k:'hot wheels cars', u:'/brands/hot-wheels', y:'brand'},
+    {t:'Disney', e:'🏰', k:'disney frozen princess mickey minnie', u:'/brands/disney', y:'brand'},
+    {t:'Paw Patrol', e:'🐶', k:'paw patrol dogs', u:'/brands/paw-patrol', y:'brand'},
+    {t:'Transformers', e:'🤖', k:'transformers robots', u:'/brands/transformers', y:'brand'},
+    {t:'Funko', e:'🎁', k:'funko pop', u:'/brands/funko', y:'brand'},
+    {t:'COBI', e:'🧱', k:'cobi blocks tanks planes', u:'/brands/cobi', y:'brand'},
+    {t:'Melissa & Doug', e:'🪵', k:'melissa doug wooden', u:'/brands/melissa-and-doug', y:'brand'},
+    {t:'Fisher-Price', e:'🍼', k:'fisher price baby', u:'/brands/fisher-price', y:'brand'},
+    {t:'Hasbro', e:'🎲', k:'hasbro games', u:'/brands/hasbro', y:'brand'},
+    {t:'Mattel', e:'🎀', k:'mattel', u:'/brands/mattel', y:'brand'},
+    {t:'Bruder Fire Engine with Ladder — $79.99', e:'🚒', k:'fire truck engine bruder', u:'https://stockcalifornia.com/search?q=bruder+fire+engine', y:'toy'},
+    {t:'Disney Frozen Straw Cups 4-Pack — $9.99', e:'❄️', k:'frozen elsa cups', u:'https://stockcalifornia.com/search?q=frozen+straw+cups', y:'toy'},
+    {t:'Spider-Man Splat Ball — $4.99', e:'🕷️', k:'spiderman splat ball', u:'https://stockcalifornia.com/search?q=spider-man+splat+ball', y:'toy'},
+    {t:'Spider-Man Super Sqwooshies — $9.99', e:'🕸️', k:'spiderman squishy sqwooshies', u:'https://stockcalifornia.com/search?q=sqwooshies', y:'toy'},
+    {t:'FC Barcelona Soccer Ball — $19.99', e:'⚽', k:'barcelona soccer futbol', u:'https://stockcalifornia.com/search?q=barcelona+soccer+ball', y:'toy'},
+    {t:'Real Madrid Soccer Ball — $19.99', e:'⚽', k:'real madrid soccer futbol', u:'https://stockcalifornia.com/search?q=real+madrid+soccer+ball', y:'toy'},
+    {t:'Crayola Washable Markers — $6.99', e:'🖍️', k:'crayola markers coloring', u:'https://stockcalifornia.com/search?q=crayola+washable+markers', y:'toy'},
+    {t:'Foam Building Blocks 60pc — $27.99', e:'🧱', k:'foam blocks building', u:'https://stockcalifornia.com/search?q=foam+building+blocks', y:'toy'}
+  ];
+  var typeColors = {category:'#06AED5', brand:'#9B5DE5', toy:'#FF5A5F'};
+  var ksInput = document.getElementById('ksInput');
+  var ksResults = document.getElementById('ksResults');
+  function ksSearch(){
+    var q = ksInput.value.trim().toLowerCase();
+    if (!q) { ksResults.classList.remove('show'); ksResults.innerHTML=''; return; }
+    var hits = INDEX.filter(function(x){ return (x.t+' '+x.k).toLowerCase().indexOf(q) > -1; }).slice(0,7);
+    var html = hits.map(function(x){
+      return '<a href="'+x.u+'"><span class="ks-emoji">'+x.e+'</span>'+x.t+'<span class="ks-type" style="background:'+typeColors[x.y]+'">'+x.y+'</span></a>';
+    }).join('');
+    html += '<a class="ks-all" href="https://stockcalifornia.com/search?q='+encodeURIComponent(ksInput.value.trim())+'">Search all toys for “'+ksInput.value.trim().replace(/</g,'&lt;')+'” →</a>';
+    ksResults.innerHTML = html;
+    ksResults.classList.add('show');
+  }
+  ksInput.addEventListener('input', ksSearch);
+  ksInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') { e.preventDefault(); window.location = 'https://stockcalifornia.com/search?q='+encodeURIComponent(ksInput.value.trim()); }
+  });
+  document.getElementById('ksGo').addEventListener('click', function(){
+    if (ksInput.value.trim()) window.location = 'https://stockcalifornia.com/search?q='+encodeURIComponent(ksInput.value.trim());
+    else ksInput.focus();
+  });
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('.kid-search')) ksResults.classList.remove('show');
+  });
 
   /* Newsletter confetti */
   var colors = ['#FF5A5F','#FFB703','#06AED5','#8AC926','#9B5DE5'];

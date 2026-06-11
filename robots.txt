@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stockcalifornia.vercel.app/sitemap.xml
