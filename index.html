@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock California — Toy Store in Glendale &amp; Tujunga | LEGO, Barbie, Marvel</title>
+<meta name="description" content="Family-run toy store with two LA showrooms and thousands of toys from the brands kids love — at prices parents love. Free US shipping over $50.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧸</text></svg>">
+<style>
+  :root{
+    --coral:#FF5A5F;
+    --sun:#FFB703;
+    --sky:#06AED5;
+    --lime:#8AC926;
+    --purple:#9B5DE5;
+    --ink:#1D2B3A;
+    --cream:#FFF9F0;
+    --card:#FFFFFF;
+    --shadow:0 8px 24px rgba(29,43,58,.08);
+    --shadow-lg:0 16px 40px rgba(29,43,58,.14);
+    --radius:20px;
+    --font-head:'Baloo 2',cursive;
+    --font-body:'Nunito',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+  h1,h2,h3{font-family:var(--font-head);line-height:1.15}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+  section{padding:72px 0}
+  .section-head{text-align:center;margin-bottom:44px}
+  .section-head h2{font-size:clamp(28px,4vw,42px);font-weight:800}
+  .section-head p{color:#5b6b7b;font-size:17px;margin-top:6px}
+  .kicker{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);background:rgba(255,90,95,.1);padding:6px 14px;border-radius:999px;margin-bottom:12px}
+
+  /* ============ Buttons ============ */
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:800;font-size:16px;padding:16px 32px;border-radius:999px;border:none;cursor:pointer;transition:transform .25s,box-shadow .25s}
+  .btn-coral{background:var(--coral);color:#fff;box-shadow:0 8px 24px rgba(255,90,95,.35)}
+  .btn-coral:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(255,90,95,.45)}
+  .btn-ghost{background:transparent;color:var(--ink);border:3px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff;transform:translateY(-3px)}
+  @keyframes wobble{0%,90%,100%{transform:rotate(0) scale(1)}92%{transform:rotate(-2deg) scale(1.04)}94%{transform:rotate(2deg) scale(1.04)}96%{transform:rotate(-1deg) scale(1.02)}98%{transform:rotate(1deg) scale(1)}}
+  .btn-pulse{animation:wobble 5s ease-in-out infinite}
+
+  /* ============ Announcement bar ============ */
+  .announce{background:var(--sun);color:var(--ink);font-weight:800;font-size:14px;text-align:center;padding:10px 16px;position:relative;overflow:hidden;height:41px}
+  .announce span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 16px;opacity:0;transform:translateY(100%);transition:opacity .5s,transform .5s}
+  .announce span.on{opacity:1;transform:translateY(0)}
+
+  /* ============ Header ============ */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,249,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(29,43,58,.07)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1240px;margin:0 auto}
+  .logo{font-family:var(--font-head);font-weight:800;font-size:24px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .logo .brick{width:28px;height:20px;background:var(--coral);border-radius:5px;position:relative;flex:none}
+  .logo .brick::before{content:'';position:absolute;top:-5px;left:4px;width:7px;height:5px;background:var(--coral);border-radius:3px 3px 0 0;box-shadow:11px 0 0 var(--coral)}
+  .logo .word-stock{color:var(--ink)}
+  .logo .word-ca{background:linear-gradient(90deg,var(--coral),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav.main-nav ul{display:flex;gap:26px;font-weight:800;font-size:15px}
+  nav.main-nav a{position:relative;padding:4px 0}
+  nav.main-nav a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:3px;border-radius:2px;background:var(--coral);transition:width .25s}
+  nav.main-nav a:hover::after{width:100%}
+  .header-icons{display:flex;align-items:center;gap:14px}
+  .icon-btn{background:none;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;transition:background .2s;position:relative}
+  .icon-btn:hover{background:rgba(29,43,58,.06)}
+  .icon-btn svg{width:21px;height:21px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .cart-count{position:absolute;top:0;right:0;background:var(--coral);color:#fff;font-size:11px;font-weight:800;width:18px;height:18px;border-radius:50%;display:grid;place-items:center}
+  .hamburger{display:none}
+  .mobile-nav{display:none}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;padding:84px 0 96px;overflow:hidden}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative;z-index:2}
+  .hero h1{font-size:clamp(42px,6.5vw,72px);font-weight:800}
+  .hero h1 .w{display:inline-block;opacity:0;transform:scale(.8) translateY(10px)}
+  .hero h1 .w.in{animation:popin .55s cubic-bezier(.34,1.56,.64,1) forwards}
+  @keyframes popin{to{opacity:1;transform:scale(1) translateY(0)}}
+  .hero h1 .hl{background:linear-gradient(90deg,var(--coral),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{font-size:19px;color:#42526a;margin:18px 0 30px;max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .float-shape{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5;pointer-events:none;z-index:1}
+  .fs-star{filter:none;border-radius:0;opacity:.6;font-size:34px}
+  @keyframes drift1{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(24px,-30px) rotate(10deg)}}
+  @keyframes drift2{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-30px,22px) rotate(-12deg)}}
+  @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(16px,28px) scale(1.12)}}
+  .hero-collage{position:relative;height:440px}
+  .collage-card{position:absolute;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:16px;width:240px}
+  .collage-card img{border-radius:12px;aspect-ratio:1;object-fit:contain;background:#fff}
+  .collage-card .cc-label{font-weight:800;font-size:13px;margin-top:10px;display:flex;justify-content:space-between;align-items:center}
+  .collage-card .cc-price{color:var(--coral)}
+  @keyframes bob1{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-14px)}}
+  @keyframes bob2{0%,100%{transform:rotate(5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-10px)}}
+  @keyframes bob3{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-18px)}}
+  .cc1{top:0;left:6%;animation:bob1 7s ease-in-out infinite;z-index:3}
+  .cc2{top:120px;right:0;animation:bob2 8.5s ease-in-out infinite;z-index:2}
+  .cc3{bottom:0;left:18%;animation:bob3 9.5s ease-in-out infinite;z-index:1;width:200px}
+
+  /* ============ Brand marquee ============ */
+  .marquee-sec{padding:28px 0;background:var(--ink);overflow:hidden}
+  .marquee{display:flex;width:max-content;animation:scroll 32s linear infinite}
+  .marquee:hover{animation-play-state:paused}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .marquee-track{display:flex;align-items:center;gap:0;flex:none}
+  .marquee-track span{font-family:var(--font-head);font-weight:800;font-size:22px;color:#fff;padding:0 22px;white-space:nowrap;opacity:.9}
+  .marquee-track i{color:var(--sun);font-style:normal}
+
+  /* ============ Age tiles ============ */
+  .age-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .age-tile{border-radius:var(--radius);padding:34px 22px;text-align:center;color:#fff;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:block}
+  .age-tile:hover{animation:wiggle .45s ease-in-out;box-shadow:var(--shadow-lg)}
+  @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(3deg)}75%{transform:rotate(-3deg)}}
+  .age-tile .emoji{font-size:46px;display:block;margin-bottom:10px}
+  .age-tile h3{font-size:26px;font-weight:800}
+  .age-tile p{font-weight:600;opacity:.92;font-size:14px}
+  .at-1{background:linear-gradient(145deg,#06AED5,#0593b5)}
+  .at-2{background:linear-gradient(145deg,#8AC926,#74ad1c)}
+  .at-3{background:linear-gradient(145deg,#FFB703,#e9a300);color:var(--ink)}
+  .at-4{background:linear-gradient(145deg,#9B5DE5,#8447cf)}
+
+  /* ============ Category grid ============ */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .cat-tile{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:24px 18px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:15px;transition:transform .25s,box-shadow .25s}
+  .cat-tile:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .cat-tile .ci{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:23px}
+
+  /* ============ Product cards ============ */
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .prod-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:relative;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+  .prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .prod-img{position:relative;aspect-ratio:1;background:#fff;overflow:hidden;padding:18px}
+  .prod-img img{width:100%;height:100%;object-fit:contain;transition:transform .25s}
+  .prod-card:hover .prod-img img{transform:scale(1.05)}
+  .badge{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;z-index:2}
+  .badge.b-sun{background:var(--sun);color:var(--ink)}
+  .prod-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .prod-title{font-weight:800;font-size:15px;line-height:1.35;flex:1}
+  .prod-price{font-weight:800;font-size:19px;color:var(--ink)}
+  .add-cart{opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;background:var(--ink);color:#fff;font-weight:800;font-size:14px;border:none;border-radius:999px;padding:11px 0;width:100%;cursor:pointer}
+  .add-cart:hover{background:var(--coral)}
+  .prod-card:hover .add-cart{opacity:1;transform:translateY(0)}
+  @media (hover:none){.add-cart{opacity:1;transform:none}}
+  .deals-cta{text-align:center;margin-top:38px}
+
+  /* ============ Showrooms ============ */
+  .stores-sec{background:linear-gradient(145deg,#1D2B3A,#15202c);color:#fff;border-radius:32px;margin:0 20px}
+  .stores-in{max-width:1160px;margin:0 auto;padding:0 20px}
+  .stores-sec .section-head h2{color:#fff}
+  .stores-sec .section-head p{color:#b8c4d0}
+  .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .store-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:30px;transition:transform .25s,background .25s}
+  .store-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.1)}
+  .store-card .pin{width:52px;height:52px;background:var(--coral);border-radius:16px;display:grid;place-items:center;font-size:24px;margin-bottom:16px}
+  .store-card h3{font-size:24px;margin-bottom:6px}
+  .store-card p{color:#c6d0da;font-size:15px}
+  .store-card .hours{display:inline-block;margin-top:12px;background:rgba(255,183,3,.15);color:var(--sun);font-weight:800;font-size:13px;padding:6px 14px;border-radius:999px}
+
+  /* ============ Trust strip ============ */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .trust-item{display:flex;align-items:center;gap:13px;background:var(--card);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);font-weight:800;font-size:14px}
+  .trust-item .ti{font-size:26px}
+  .trust-item small{display:block;font-weight:600;color:#5b6b7b}
+
+  /* ============ Newsletter ============ */
+  .news-sec{position:relative}
+  .news-card{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--coral),var(--sun));border-radius:28px;padding:56px 32px;text-align:center;color:#fff;box-shadow:var(--shadow-lg)}
+  .news-card h2{font-size:clamp(26px,3.6vw,38px)}
+  .news-card p{font-weight:600;opacity:.95;margin:8px 0 26px}
+  .news-form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .news-form input{flex:1;min-width:220px;border:none;border-radius:999px;padding:16px 24px;font-family:var(--font-body);font-size:16px;font-weight:600;outline:none}
+  .news-form button{background:var(--ink);color:#fff}
+  .news-thanks{display:none;font-weight:800;font-size:20px;margin-top:8px}
+  .confetti{position:absolute;width:10px;height:10px;top:50%;left:50%;border-radius:2px;pointer-events:none;z-index:5}
+
+  /* ============ Footer ============ */
+  footer{background:var(--ink);color:#c6d0da;padding:64px 0 32px;margin-top:80px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
+  footer .logo{color:#fff;margin-bottom:14px}
+  footer .logo .word-stock{color:#fff}
+  footer h4{font-family:var(--font-head);color:#fff;font-size:17px;margin-bottom:14px}
+  footer li{margin-bottom:9px;font-size:14.5px;font-weight:600}
+  footer a:hover{color:var(--sun)}
+  .socials{display:flex;gap:12px;margin-top:18px}
+  .socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:background .2s,transform .2s}
+  .socials a:hover{background:var(--coral);transform:translateY(-3px)}
+  .socials svg{width:18px;height:18px;fill:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;text-align:center;font-size:13.5px;font-weight:600;color:#8a98a8}
+
+  /* ============ Scroll reveal ============ */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.vis{opacity:1;transform:translateY(0)}
+  .stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .stagger.vis>*{opacity:1;transform:translateY(0)}
+
+  /* ============ Responsive ============ */
+  @media (max-width:980px){
+    .hero-in{grid-template-columns:1fr}
+    .hero-collage{height:380px;max-width:480px}
+    .age-grid{grid-template-columns:repeat(2,1fr)}
+    .prod-grid{grid-template-columns:repeat(2,1fr)}
+    .trust{grid-template-columns:repeat(2,1fr)}
+    .store-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    nav.main-nav{display:none}
+    .hamburger{display:grid}
+  }
+  @media (max-width:560px){
+    section{padding:52px 0}
+    .prod-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .prod-body{padding:12px 12px 14px}
+    .prod-title{font-size:13px}
+    .age-grid{gap:12px}
+    .collage-card{width:170px;padding:10px}
+    .cc3{display:none}
+    .hero{padding:56px 0 64px}
+    .trust{grid-template-columns:1fr}
+  }
+  .mobile-nav.open{display:block;position:fixed;inset:0;top:0;background:rgba(255,249,240,.98);z-index:200;padding:90px 32px}
+  .mobile-nav ul{font-family:var(--font-head);font-size:30px;font-weight:800;display:flex;flex-direction:column;gap:20px}
+  .mobile-nav .close-nav{position:absolute;top:22px;right:22px;font-size:30px;background:none;border:none;cursor:pointer;color:var(--ink)}
+
+  /* ============ Reduced motion ============ */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .hero h1 .w{opacity:1;transform:none}
+    .reveal,.stagger>*{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="announce" role="status">
+  <span class="on">🚚 Free shipping on all orders over $50</span>
+  <span>📍 2 LA showrooms — Glendale &amp; Tujunga · Open daily 10AM–8PM</span>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-in">
+    <a class="logo" href="#" aria-label="Stock California home">
+      <span class="brick" aria-hidden="true"></span>
+      <span><span class="word-stock">Stock</span> <span class="word-ca">California</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="#ages">Shop by Age</a></li>
+        <li><a href="#brands">Shop by Brand</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#deals">Deals</a></li>
+        <li><a href="#stores">Our Stores</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>
+      <button class="icon-btn" aria-label="Cart, 3 items"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="cart-count">3</span></button>
+      <button class="icon-btn hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.add('open')"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="close-nav" aria-label="Close menu" onclick="this.parentElement.classList.remove('open')">✕</button>
+  <ul>
+    <li><a href="#ages" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Shop by Age</a></li>
+    <li><a href="#brands" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Shop by Brand</a></li>
+    <li><a href="#categories" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Categories</a></li>
+    <li><a href="#deals" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Deals</a></li>
+    <li><a href="#stores" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Our Stores</a></li>
+  </ul>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <!-- floating shapes -->
+  <div class="float-shape" style="width:140px;height:140px;background:var(--sun);top:8%;left:4%;animation:drift1 8s ease-in-out infinite" aria-hidden="true"></div>
+  <div class="float-shape" style="width:90px;height:90px;background:var(--sky);bottom:14%;left:38%;animation:drift2 9s ease-in-out infinite" aria-hidden="true"></div>
+  <div class="float-shape" style="width:110px;height:110px;background:var(--purple);top:14%;right:6%;animation:drift3 10s ease-in-out infinite" aria-hidden="true"></div>
+  <div class="float-shape" style="width:70px;height:70px;background:var(--lime);bottom:8%;right:22%;animation:drift1 7s ease-in-out infinite" aria-hidden="true"></div>
+  <div class="float-shape fs-star" style="top:22%;left:30%;animation:drift2 6.5s ease-in-out infinite" aria-hidden="true">⭐</div>
+  <div class="float-shape fs-star" style="bottom:24%;right:8%;animation:drift3 8.5s ease-in-out infinite" aria-hidden="true">🧩</div>
+
+  <div class="wrap hero-in">
+    <div>
+      <span class="kicker">Big brands · Little prices</span>
+      <h1 id="heroH1"><span class="w">California’s</span> <span class="w hl">Toy&nbsp;Box</span></h1>
+      <p class="sub">The brands kids love — LEGO, Barbie, Marvel &amp; more — at prices parents love.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-coral btn-pulse" href="#deals">Shop Best Sellers 🎁</a>
+        <a class="btn btn-ghost" href="#stores">Visit a Showroom</a>
+      </div>
+    </div>
+    <div class="hero-collage" aria-hidden="true">
+      <div class="collage-card cc1">
+        <img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/f_03472_3.webp?v=1781140023" alt="" loading="eager">
+        <div class="cc-label"><span>Bruder Fire Engine</span><span class="cc-price">$79.99</span></div>
+      </div>
+      <div class="collage-card cc2">
+        <img src="https://stockcalifornia.com/cdn/shop/products/51ZzB-lLNeL.jpg?v=1678407600" alt="" loading="lazy">
+        <div class="cc-label"><span>LEGO Lamborghini</span><span class="cc-price">LEGO®</span></div>
+      </div>
+      <div class="collage-card cc3">
+        <img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/840266547136.jpg?v=1781031704" alt="" loading="lazy">
+        <div class="cc-label"><span>Real Madrid Ball</span><span class="cc-price">$19.99</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brand marquee -->
+<div class="marquee-sec" id="brands" aria-label="Brands we carry">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>LEGO</span><i>★</i><span>Barbie</span><i>★</i><span>Marvel</span><i>★</i><span>Star Wars</span><i>★</i><span>Hot Wheels</span><i>★</i><span>Disney</span><i>★</i><span>Paw Patrol</span><i>★</i><span>Transformers</span><i>★</i><span>Funko</span><i>★</i><span>COBI</span><i>★</i><span>Melissa &amp; Doug</span><i>★</i><span>Fisher-Price</span><i>★</i><span>Hasbro</span><i>★</i><span>Mattel</span><i>★</i>
+    </div>
+    <div class="marquee-track" aria-hidden="true">
+      <span>LEGO</span><i>★</i><span>Barbie</span><i>★</i><span>Marvel</span><i>★</i><span>Star Wars</span><i>★</i><span>Hot Wheels</span><i>★</i><span>Disney</span><i>★</i><span>Paw Patrol</span><i>★</i><span>Transformers</span><i>★</i><span>Funko</span><i>★</i><span>COBI</span><i>★</i><span>Melissa &amp; Doug</span><i>★</i><span>Fisher-Price</span><i>★</i><span>Hasbro</span><i>★</i><span>Mattel</span><i>★</i>
+    </div>
+  </div>
+</div>
+
+<!-- Shop by Age -->
+<section id="ages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Just-right picks</span>
+      <h2>Shop by Age</h2>
+      <p>Find the perfect toy for every stage — from first rattles to big-kid builds.</p>
+    </div>
+    <div class="age-grid stagger">
+      <a class="age-tile at-1" href="https://stockcalifornia.com/collections/0-24-months">
+        <span class="emoji">🍼</span><h3>0–2</h3><p>years · soft &amp; sensory</p>
+      </a>
+      <a class="age-tile at-2" href="https://stockcalifornia.com/collections/2-4-years">
+        <span class="emoji">🚂</span><h3>2–4</h3><p>years · play &amp; pretend</p>
+      </a>
+      <a class="age-tile at-3" href="https://stockcalifornia.com/collections/5-7-years">
+        <span class="emoji">🎨</span><h3>5–7</h3><p>years · create &amp; learn</p>
+      </a>
+      <a class="age-tile at-4" href="https://stockcalifornia.com/collections/8-12-years">
+        <span class="emoji">🚀</span><h3>8–12</h3><p>years · build &amp; collect</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section id="categories" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Aisles of fun</span>
+      <h2>Explore Categories</h2>
+    </div>
+    <div class="cat-grid stagger">
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/action-figures"><span class="ci" style="background:rgba(255,90,95,.12)">🦸</span>Action Figures</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/dolls-accessories"><span class="ci" style="background:rgba(155,93,229,.12)">🪆</span>Dolls &amp; Accessories</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/collectibles"><span class="ci" style="background:rgba(255,183,3,.15)">🏆</span>Collectibles</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/construction-toys"><span class="ci" style="background:rgba(6,174,213,.12)">🧱</span>Building Toys</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/games-puzzles"><span class="ci" style="background:rgba(138,201,38,.14)">🧩</span>Games &amp; Puzzles</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/stem-learning"><span class="ci" style="background:rgba(6,174,213,.12)">🔬</span>STEM &amp; Learning</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/play-vehicles"><span class="ci" style="background:rgba(255,90,95,.12)">🚗</span>Play Vehicles</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/ride-on-cars"><span class="ci" style="background:rgba(255,183,3,.15)">🏎️</span>Ride-On Cars</a>
+      <a class="cat-tile" href="https://stockcalifornia.com/collections/sport-outdoors"><span class="ci" style="background:rgba(138,201,38,.14)">⚽</span>Sport &amp; Outdoors</a>
+    </div>
+  </div>
+</section>
+
+<!-- Best Sellers -->
+<section id="deals" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Flying off the shelves</span>
+      <h2>Best Sellers &amp; Deals</h2>
+      <p>Real favorites from our LA showrooms — restocked weekly.</p>
+    </div>
+    <div class="prod-grid stagger">
+      <article class="prod-card">
+        <div class="prod-img"><span class="badge">Best Seller</span><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/f_03472_3.webp?v=1781140023" alt="Bruder Fire Engine with Ladder" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Bruder Fire Engine with Ladder</h3><div class="prod-price">$79.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/D2543947-FFA3-49E4-9BA7-BB7E6411772E.jpg?v=1781141008" alt="Disney Frozen Straw Cups 4-Pack" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Disney Frozen Straw Cups 4-Pack</h3><div class="prod-price">$9.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><span class="badge b-sun">Under $5</span><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/23DDCC3D-D6C9-4ECE-9189-18F09A90502D.jpg?v=1781134900" alt="Spider-Man Splat Ball" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Spider-Man Splat Ball</h3><div class="prod-price">$4.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/2981CED4-5CE1-45F5-861A-1F9B4205D2B6.jpg?v=1781123576" alt="Spider-Man Super Sqwooshies" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Spider-Man Super Sqwooshies</h3><div class="prod-price">$9.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/Aaec9665a1887401283c6ac97ca600a6cH.jpg?v=1781112738" alt="FC Barcelona Soccer Ball, Size 5" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">FC Barcelona Soccer Ball (Size 5)</h3><div class="prod-price">$19.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/840266547136.jpg?v=1781031704" alt="Real Madrid Soccer Ball, Size 5" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Real Madrid Soccer Ball (Size 5)</h3><div class="prod-price">$19.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/71ZOy5AHaqL.jpg?v=1781035557" alt="Crayola Washable Markers, 8 Colors" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Crayola Washable Markers, 8 Colors</h3><div class="prod-price">$6.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><span class="badge">Best Seller</span><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/55902.jpg?v=1781030261" alt="Foam Building Blocks, 60 Pieces" loading="lazy"></div>
+        <div class="prod-body"><h3 class="prod-title">Foam Building Blocks — 60 Pieces</h3><div class="prod-price">$27.99</div><button class="add-cart">Add to cart</button></div>
+      </article>
+    </div>
+    <div class="deals-cta reveal"><a class="btn btn-coral" href="https://stockcalifornia.com/collections/all">See All Toys →</a></div>
+  </div>
+</section>
+
+<!-- Showrooms -->
+<section class="stores-sec" id="stores">
+  <div class="stores-in">
+    <div class="section-head reveal">
+      <span class="kicker" style="background:rgba(255,183,3,.18);color:var(--sun)">Come say hi</span>
+      <h2>Two LA Showrooms</h2>
+      <p>Thousands of toys in person. Bring the kids — we dare you to leave empty-handed.</p>
+    </div>
+    <div class="store-grid stagger">
+      <div class="store-card">
+        <div class="pin">📍</div>
+        <h3>Glendale</h3>
+        <p>6743 San Fernando Rd, Glendale, CA 91201</p>
+        <span class="hours">Open daily · 10AM–8PM</span>
+      </div>
+      <div class="store-card">
+        <div class="pin">📍</div>
+        <h3>Tujunga</h3>
+        <p>7115 Foothill Blvd, Tujunga, CA 91042</p>
+        <span class="hours">Open daily · 10AM–8PM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section style="padding-bottom:0">
+  <div class="wrap">
+    <div class="trust stagger">
+      <div class="trust-item"><span class="ti">🚚</span><div>Free shipping<small>on orders $50+</small></div></div>
+      <div class="trust-item"><span class="ti">↩️</span><div>Easy returns<small>no-stress policy</small></div></div>
+      <div class="trust-item"><span class="ti">🏬</span><div>2 physical stores<small>Glendale &amp; Tujunga</small></div></div>
+      <div class="trust-item"><span class="ti">💳</span><div>All major payments<small>Apple Pay · PayPal · Shop Pay</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="news-sec">
+  <div class="wrap">
+    <div class="news-card reveal" id="newsCard">
+      <h2>Get first dibs on new drops &amp; deals 🎉</h2>
+      <p>One playful email a week. No spam, pinky promise.</p>
+      <form class="news-form" id="newsForm">
+        <input type="email" placeholder="your@email.com" required aria-label="Email address">
+        <button class="btn" type="submit">Sign me up</button>
+      </form>
+      <div class="news-thanks" id="newsThanks">🎊 You're in! Watch your inbox.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#"><span class="brick" aria-hidden="true"></span><span><span class="word-stock">Stock</span> <span class="word-ca">California</span></span></a>
+        <p style="font-size:14.5px;max-width:300px">Family-run toy store with two LA showrooms and thousands of toys from the brands kids love — at prices parents love. Free US shipping over $50.</p>
+        <div class="socials">
+          <a href="https://facebook.com/stockcalifornia" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.2-1.5 1.5-1.5h1.4V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.4v7h3.3z"/></svg></a>
+          <a href="https://instagram.com/stockcalifornia" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.4-.3.8-.3 1.9-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.1.8.3 1.9.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.4.3-.8.3-1.9.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.1-.8-.3-1.9-.3-1.3-.1-1.7-.1-4.8-.1zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="https://stockcalifornia.com/collections/all">All Toys</a></li>
+          <li><a href="#ages">Shop by Age</a></li>
+          <li><a href="#brands">Shop by Brand</a></li>
+          <li><a href="#deals">Best Sellers</a></li>
+          <li><a href="#categories">Categories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="https://stockcalifornia.com/pages/contact">Contact</a></li>
+          <li><a href="https://stockcalifornia.com/policies/shipping-policy">Shipping Policy</a></li>
+          <li><a href="https://stockcalifornia.com/policies/refund-policy">Returns</a></li>
+          <li><a href="https://stockcalifornia.com/policies/privacy-policy">Privacy</a></li>
+          <li><a href="https://stockcalifornia.com/policies/terms-of-service">Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stores</h4>
+        <ul>
+          <li><a href="#stores">Glendale — 6743 San Fernando Rd</a></li>
+          <li><a href="#stores">Tujunga — 7115 Foothill Blvd</a></li>
+          <li>Open daily 10AM–8PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Stock California · California’s Toy Box · Glendale &amp; Tujunga, Los Angeles</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Announcement bar rotation */
+  var msgs = document.querySelectorAll('.announce span');
+  if (msgs.length > 1 && !reduced) {
+    var ai = 0;
+    setInterval(function(){
+      msgs[ai].classList.remove('on');
+      ai = (ai + 1) % msgs.length;
+      msgs[ai].classList.add('on');
+    }, 4500);
+  }
+
+  /* Hero headline staggered pop-in */
+  document.querySelectorAll('#heroH1 .w').forEach(function(w, i){
+    w.style.animationDelay = (120 + i * 80) + 'ms';
+    w.classList.add('in');
+  });
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.classList.add('vis');
+          if (e.target.classList.contains('stagger')) {
+            Array.prototype.forEach.call(e.target.children, function(c, i){
+              c.style.transitionDelay = (i * 80) + 'ms';
+            });
+          }
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal,.stagger').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal,.stagger').forEach(function(el){ el.classList.add('vis'); });
+  }
+
+  /* Newsletter confetti */
+  var colors = ['#FF5A5F','#FFB703','#06AED5','#8AC926','#9B5DE5'];
+  document.getElementById('newsForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('newsThanks').style.display = 'block';
+    if (reduced) return;
+    var card = document.getElementById('newsCard');
+    for (var i = 0; i < 36; i++) {
+      var c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.background = colors[i % colors.length];
+      var ang = (i / 36) * Math.PI * 2;
+      var dist = 120 + (i % 5) * 50;
+      var dx = Math.cos(ang) * dist, dy = Math.sin(ang) * dist - 80;
+      c.animate([
+        { transform: 'translate(0,0) rotate(0)', opacity: 1 },
+        { transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (360 + i * 25) + 'deg)', opacity: 0 }
+      ], { duration: 900 + (i % 6) * 120, easing: 'cubic-bezier(.17,.67,.4,1)', fill: 'forwards' });
+      card.appendChild(c);
+      setTimeout(function(el){ return function(){ el.remove(); }; }(c), 2000);
+    }
+  });
+
+  /* Add-to-cart demo: bump the cart bubble */
+  var count = 3;
+  document.querySelectorAll('.add-cart').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      count++;
+      var bubble = document.querySelector('.cart-count');
+      bubble.textContent = count;
+      if (!reduced) {
+        bubble.animate(
+          [{ transform: 'scale(1)' }, { transform: 'scale(1.5)' }, { transform: 'scale(1)' }],
+          { duration: 350, easing: 'ease-out' }
+        );
+      }
+      btn.textContent = 'Added ✓';
+      setTimeout(function(){ btn.textContent = 'Add to cart'; }, 1400);
+    });
+  });
+})();
+</script>
+</body>
+</html>
