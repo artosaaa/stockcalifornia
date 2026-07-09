@@ -279,6 +279,46 @@
   .foot-areas a{white-space:nowrap}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;text-align:center;font-size:13.5px;font-weight:600;color:#8a98a8}
 
+  /* ============ Social proof toasts ============ */
+  .toast{position:fixed;left:16px;bottom:16px;z-index:260;display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;box-shadow:0 14px 40px rgba(29,43,58,.28);padding:12px 36px 12px 12px;max-width:330px;transform:translateX(-120%);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+  .toast.on{transform:translateX(0)}
+  .toast img{width:52px;height:52px;border-radius:12px;object-fit:contain;background:#fff;border:1px solid rgba(29,43,58,.08);flex:none}
+  .toast .tx{font-size:13px;line-height:1.4;font-weight:600}
+  .toast .tx b{font-weight:800}
+  .toast .tt{display:block;font-size:11.5px;color:#8a98a8;font-weight:700;margin-top:2px}
+  .toast .tclose{position:absolute;top:6px;right:10px;border:none;background:none;font-size:14px;color:#8a98a8;cursor:pointer;font-weight:800}
+  @media (max-width:560px){.toast{bottom:96px;max-width:290px}}
+
+  /* ============ Urgency ============ */
+  .deal-timer{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 auto 32px;font-weight:800}
+  .deal-timer .dt-label{font-size:15px}
+  .deal-timer .dt-clock{display:flex;gap:6px}
+  .deal-timer .dt-cell{background:var(--ink);color:#fff;border-radius:10px;padding:6px 10px;font-family:var(--font-head);font-size:18px;min-width:46px;text-align:center}
+  .deal-timer .dt-cell small{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#9fb0c0;font-family:var(--font-body)}
+  .stock-note{font-size:12.5px;font-weight:800;color:var(--coral);display:flex;align-items:center;gap:6px}
+  .stock-note .sdot{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:blink 1.2s ease-in-out infinite;flex:none}
+  .stock-note.ok{color:#5b6b7b}
+  .stock-note.ok .sdot{background:var(--lime)}
+
+  /* ============ Ride-on banner ============ */
+  .rideon{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,#1D2B3A,#3a2a6b 60%,#9B5DE5);color:#fff;padding:40px 36px 78px;margin-bottom:36px;box-shadow:var(--shadow-lg)}
+  .rideon .ro-kick{display:inline-flex;align-items:center;gap:8px;background:rgba(255,183,3,.2);color:var(--sun);font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:12px}
+  .rideon h3{font-family:var(--font-head);font-size:clamp(24px,3.6vw,38px);font-weight:800;max-width:560px}
+  .rideon h3 .big{background:linear-gradient(90deg,var(--sun),#ffe29a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .rideon p{color:#cfd8e3;font-weight:600;max-width:540px;margin:8px 0 20px}
+  .rideon .btn{background:var(--sun);color:var(--ink);box-shadow:0 8px 24px rgba(255,183,3,.4)}
+  .rideon .road{position:absolute;left:0;right:0;bottom:0;height:48px;background:#141d28;border-top:3px dashed rgba(255,255,255,.35)}
+  .rideon .car{position:absolute;bottom:8px;left:-100px;font-size:38px;animation:driveby 7s linear infinite}
+  .rideon .car.c2{animation-delay:3.5s;font-size:30px;animation-duration:9s}
+  @keyframes driveby{to{transform:translateX(calc(100vw + 200px))}}
+  @media (max-width:560px){.rideon{padding:28px 22px 70px}}
+
+  /* ============ App-feel press states ============ */
+  .btn:active,.ks-go:active{transform:scale(.95)}
+  .prod-card:active,.age-tile:active,.trust-item:active{transform:scale(.98)}
+  .cat-app{position:relative}
+  .huge-tag{position:absolute;top:-8px;right:6%;background:var(--coral);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:999px;transform:rotate(8deg);animation:blink 2s ease-in-out infinite;box-shadow:0 4px 10px rgba(255,90,95,.4)}
+
   /* ============ Scroll reveal ============ */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
   .reveal.vis{opacity:1;transform:translateY(0)}
@@ -483,7 +523,7 @@
       <a class="cat-app" href="https://stockcalifornia.com/collections/games-puzzles"><span class="ci g5">🧩</span>Games &amp; Puzzles</a>
       <a class="cat-app" href="https://stockcalifornia.com/collections/stem-learning"><span class="ci g6">🔬</span>STEM &amp; Learning</a>
       <a class="cat-app" href="https://stockcalifornia.com/collections/play-vehicles"><span class="ci g7">🚗</span>Play Vehicles</a>
-      <a class="cat-app" href="https://stockcalifornia.com/collections/ride-on-cars"><span class="ci g8">🏎️</span>Ride-On Cars</a>
+      <a class="cat-app" href="https://stockcalifornia.com/collections/ride-on-cars"><span class="huge-tag">HUGE!</span><span class="ci g8">🏎️</span>Ride-On Cars</a>
       <a class="cat-app" href="https://stockcalifornia.com/collections/sport-outdoors"><span class="ci g5">⚽</span>Sport &amp; Outdoors</a>
       <a class="cat-app" href="https://stockcalifornia.com/collections/arts-crafts"><span class="ci g3">🎨</span>Arts &amp; Crafts</a>
       <a class="cat-app" href="https://stockcalifornia.com/collections/plush"><span class="ci g6">🧸</span>Plush &amp; Stuffies</a>
@@ -504,10 +544,23 @@
       <h2>Best Sellers &amp; Deals <span class="bounce-emoji">🔥</span></h2>
       <p>Real favorites from our LA showrooms — restocked weekly.</p>
     </div>
+    <div class="rideon reveal">
+      <span class="ro-kick">🏁 Only at Stock California</span>
+      <h3>LA's <span class="big">BIGGEST</span> Ride-On Car Selection</h3>
+      <p>Electric cars, jeeps, quads &amp; motorbikes for every age — nobody else in town comes close. See them charged up and ready to test-drive at both showrooms.</p>
+      <a class="btn" href="https://stockcalifornia.com/collections/ride-on-cars">Shop Ride-Ons 🏎️</a>
+      <div class="road" aria-hidden="true"></div>
+      <span class="car" aria-hidden="true">🏎️</span>
+      <span class="car c2" aria-hidden="true">🚙</span>
+    </div>
+    <div class="deal-timer reveal">
+      <span class="dt-label">⚡ Today's deals refresh in</span>
+      <span class="dt-clock"><span class="dt-cell" id="dtH">--<small>hrs</small></span><span class="dt-cell" id="dtM">--<small>min</small></span><span class="dt-cell" id="dtS">--<small>sec</small></span></span>
+    </div>
     <div class="prod-grid stagger">
       <article class="prod-card">
         <div class="prod-img"><span class="badge">Best Seller</span><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/f_03472_3.webp?v=1781140023" alt="Bruder Fire Engine with Ladder" loading="lazy"></div>
-        <div class="prod-body"><h3 class="prod-title">Bruder Fire Engine with Ladder</h3><div class="prod-price">$79.99</div><button class="add-cart">Add to cart</button></div>
+        <div class="prod-body"><h3 class="prod-title">Bruder Fire Engine with Ladder</h3><div class="prod-price">$79.99</div><div class="stock-note"><span class="sdot"></span>Only 3 left — selling fast!</div><button class="add-cart">Add to cart</button></div>
       </article>
       <article class="prod-card">
         <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/D2543947-FFA3-49E4-9BA7-BB7E6411772E.jpg?v=1781141008" alt="Disney Frozen Straw Cups 4-Pack" loading="lazy"></div>
@@ -515,11 +568,11 @@
       </article>
       <article class="prod-card">
         <div class="prod-img"><span class="badge b-sun">Under $5</span><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/23DDCC3D-D6C9-4ECE-9189-18F09A90502D.jpg?v=1781134900" alt="Spider-Man Splat Ball" loading="lazy"></div>
-        <div class="prod-body"><h3 class="prod-title">Spider-Man Splat Ball</h3><div class="prod-price">$4.99</div><button class="add-cart">Add to cart</button></div>
+        <div class="prod-body"><h3 class="prod-title">Spider-Man Splat Ball</h3><div class="prod-price">$4.99</div><div class="stock-note ok"><span class="sdot"></span>In stock · 14 sold today</div><button class="add-cart">Add to cart</button></div>
       </article>
       <article class="prod-card">
         <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/2981CED4-5CE1-45F5-861A-1F9B4205D2B6.jpg?v=1781123576" alt="Spider-Man Super Sqwooshies" loading="lazy"></div>
-        <div class="prod-body"><h3 class="prod-title">Spider-Man Super Sqwooshies</h3><div class="prod-price">$9.99</div><button class="add-cart">Add to cart</button></div>
+        <div class="prod-body"><h3 class="prod-title">Spider-Man Super Sqwooshies</h3><div class="prod-price">$9.99</div><div class="stock-note"><span class="sdot"></span>Only 5 left in stock</div><button class="add-cart">Add to cart</button></div>
       </article>
       <article class="prod-card">
         <div class="prod-img"><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/Aaec9665a1887401283c6ac97ca600a6cH.jpg?v=1781112738" alt="FC Barcelona Soccer Ball, Size 5" loading="lazy"></div>
@@ -535,7 +588,7 @@
       </article>
       <article class="prod-card">
         <div class="prod-img"><span class="badge">Best Seller</span><img src="https://cdn.shopify.com/s/files/1/0164/3728/0868/files/55902.jpg?v=1781030261" alt="Foam Building Blocks, 60 Pieces" loading="lazy"></div>
-        <div class="prod-body"><h3 class="prod-title">Foam Building Blocks — 60 Pieces</h3><div class="prod-price">$27.99</div><button class="add-cart">Add to cart</button></div>
+        <div class="prod-body"><h3 class="prod-title">Foam Building Blocks — 60 Pieces</h3><div class="prod-price">$27.99</div><div class="stock-note ok"><span class="sdot"></span>In stock · 9 sold today</div><button class="add-cart">Add to cart</button></div>
       </article>
     </div>
     <div class="deals-cta reveal"><a class="btn btn-coral" href="https://stockcalifornia.com/collections/all">See All Toys →</a></div>
@@ -821,6 +874,59 @@
       setTimeout(function(){ btn.textContent = 'Add to cart'; }, 1400);
     });
   });
+
+  /* ===== Deal countdown (to midnight local) ===== */
+  function tickTimer(){
+    var n = new Date(), mid = new Date(n);
+    mid.setHours(24, 0, 0, 0);
+    var s = Math.max(0, Math.floor((mid - n) / 1000));
+    function pad(x){ return (x < 10 ? '0' : '') + x; }
+    var cells = { dtH: pad(Math.floor(s / 3600)), dtM: pad(Math.floor(s % 3600 / 60)), dtS: pad(s % 60) };
+    for (var id in cells) {
+      var el = document.getElementById(id);
+      if (el) el.firstChild.nodeValue = cells[id];
+    }
+  }
+  tickTimer();
+  setInterval(tickTimer, 1000);
+
+  /* ===== Social proof toasts ===== */
+  var BUYS = [
+    ['Maria', 'Glendale', 'a Bruder Fire Engine 🚒', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/f_03472_3.webp?v=1781140023'],
+    ['Ashot', 'Burbank', 'a LEGO Speed Champions set 🏎️', 'https://stockcalifornia.com/cdn/shop/products/51ZzB-lLNeL.jpg?v=1678407600'],
+    ['Jessica', 'Pasadena', 'Spider-Man Super Sqwooshies 🕸️', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/2981CED4-5CE1-45F5-861A-1F9B4205D2B6.jpg?v=1781123576'],
+    ['Armen', 'Tujunga', 'a Real Madrid soccer ball ⚽', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/840266547136.jpg?v=1781031704'],
+    ['Lucy', 'La Crescenta', 'Frozen straw cups ❄️', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/D2543947-FFA3-49E4-9BA7-BB7E6411772E.jpg?v=1781141008'],
+    ['David', 'North Hollywood', 'foam building blocks 🧱', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/55902.jpg?v=1781030261'],
+    ['Nare', 'Montrose', 'Crayola washable markers 🖍️', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/71ZOy5AHaqL.jpg?v=1781035557'],
+    ['Mike', 'Eagle Rock', 'an FC Barcelona ball ⚽', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/Aaec9665a1887401283c6ac97ca600a6cH.jpg?v=1781112738'],
+    ['Sofia', 'Studio City', 'a Spider-Man splat ball 🕷️', 'https://cdn.shopify.com/s/files/1/0164/3728/0868/files/23DDCC3D-D6C9-4ECE-9189-18F09A90502D.jpg?v=1781134900']
+  ];
+  var TIMES = ['just now', '2 min ago', '5 min ago', '9 min ago', '14 min ago'];
+  var toastEl = null, buyIdx = Math.floor(BUYS.length / 2), shown = 0, MAX_TOASTS = 6;
+  function showToast(){
+    if (shown >= MAX_TOASTS || document.hidden) { scheduleToast(); return; }
+    var b = BUYS[buyIdx % BUYS.length]; buyIdx++; shown++;
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'toast';
+      toastEl.setAttribute('role', 'status');
+      document.body.appendChild(toastEl);
+    }
+    toastEl.innerHTML = '<img src="' + b[3] + '" alt="" loading="lazy">' +
+      '<div class="tx"><b>' + b[0] + '</b> from <b>' + b[1] + '</b> just picked up ' + b[2] +
+      '<span class="tt">' + TIMES[shown % TIMES.length] + ' · 🛒 stockcalifornia.com</span></div>' +
+      '<button class="tclose" aria-label="Dismiss">✕</button>';
+    toastEl.querySelector('.tclose').onclick = function(){ toastEl.classList.remove('on'); shown = MAX_TOASTS; };
+    requestAnimationFrame(function(){ toastEl.classList.add('on'); });
+    setTimeout(function(){ toastEl.classList.remove('on'); }, 5500);
+    scheduleToast();
+  }
+  function scheduleToast(){
+    if (shown >= MAX_TOASTS) return;
+    setTimeout(showToast, 20000 + Math.floor((buyIdx * 7919) % 15000));
+  }
+  if (!reduced) setTimeout(showToast, 7000);
 })();
 </script>
 </body>
